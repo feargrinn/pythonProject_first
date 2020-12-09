@@ -65,20 +65,23 @@ for substring in result_0:
 
 #########################################################
 
-var_name = input('podaj nazwe: ')
-pattern_var = re.compile(r'^[a-z_][a-z_A-Z0-9]*$')
-result_var = pattern_var.search(var_name)
-if result_var:
-    result_word = result_var.group()
-    if re.match(r'_+$', result_word):
-        print('niby moze ale nie probuj')
-    else:
-        print('input moze byc nazwa zmiennej'.format(result_word))
-else:
-    print('input nie moze byc nazwa zmiennej'.format(var_name))
+# var_name = input('podaj nazwe: ')
+# pattern_var = re.compile(r'^[a-z_][a-z_A-Z0-9]*$')
+# result_var = pattern_var.search(var_name)
+# if result_var:
+#     result_word = result_var.group()
+#     if re.match(r'_+$', result_word):
+#         print('niby moze ale nie probuj')
+#     else:
+#         print('input moze byc nazwa zmiennej'.format(result_word))
+# else:
+#     print('input nie moze byc nazwa zmiennej'.format(var_name))
 
 #########################################################
 
 # zadanie
 # znajdz wszystkie wyrazy ktore skladaja sie z przynajmniej 4 znakow
-pattern_four = re.compile(r'/b/w/w/w/w+/b')
+import re
+pattern_four = re.compile(r'\w\w\w\w+')
+result_four = pattern_four.findall('four word text, three, two!')
+print(result_four)
