@@ -27,13 +27,25 @@ except (IOError, ZeroDivisionError) as e:
 # zad 7
 # proszę na dowolnej funkcji przetestować parametry pozycyjne, z nazwami, *args i **kwargs. Sprawdzić w jakiej kolejności mogą być ustawiane. Czy można bez błędu wywołać poniższą funkcję bez wprowadzania w niej zmian.
 
+# https://duckduckgo.com/?t=ffab&q=python+args+kwargs&ia=web
+
 def person_print(name, last_name, *others, age):
     formatted_data = 'Imię: {}, nazwisko: {}, wiek: {}'.format(name,last_name,age)
     others_str = ' '
     for arg in others:
         others_str += arg + ' '
     print(formatted_data + others_str)
-# nie wypisuje bledow
+# fixed
+def person_print(name, last_name, age, *others):
+    formatted_data = 'Imię: {}, nazwisko: {}, wiek: {}'.format(name,last_name,age)
+    others_str = ' '
+    for arg in others:
+        others_str += arg + ' '
+    print(formatted_data + others_str)
+
+
+person_print("Jozef","Kowalski",54,", pesel: 8288282",", adres: xxx")
+# blad - nie wczytuje age
 
 # testowanie
 def person_print(name, last_name, *others, age, **key_others):
